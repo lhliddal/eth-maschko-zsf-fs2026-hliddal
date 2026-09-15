@@ -1,0 +1,242 @@
+% !TEX root = ../main.tex
+% SECTION 2: WELLE-NABE-VERBINDUNGEN
+% Inhalt: Liv Erne, Silvio Seiz — Form: ZSF-Template-Rework
+% ============================================================
+
+\StartChapter[ch:wnv]{Welle-Nabe-Verbindungen}
+\ZSFindexsee{WNV}{Welle-Nabe-Verbindung}
+\ZSFindex{Welle-Nabe-Verbindung}
+
+\SubsectionBar[sec:wnv-formschluss]{Formschlüssige WNV}
+\ZSFindex[formschlussige wnv]{formschlüssige WNV}
+
+\begin{defbox}[Formschluss]
+Moment wird durch \ZSFkeyword{Mitnehmerelemente} und -Geometrie übertragen. Beispiele: Zahnwelle, Polygonprofile, Längsstift, Querstift.
+\end{defbox}
+
+\begin{statementbox}[Kurzschreibweise]
+DIN 6885$-$A$-10\times8\times32$\\
+(DIN Norm -- Form -- Breite $\times$ Höhe $\times$ Länge)
+\end{statementbox}
+
+\SubsubsectionBar{Passfeder}
+\ZSFindex{Passfeder}
+\ZSFindexsee{DIN 6885}{Passfeder}
+
+\phantomsection\label{formula:wnv-pzul}
+\begin{formulabox}[Tragende Länge und Pressung]
+\formulasources{$\ZSFwnvRe$:~\ZSFsource{aus}{sec:werkstoffkennwerte} \ $\cdot$ \ $\ZSFwnvS$:~\ZSFsource{aus}{sec:sicherheit}}
+{\centering $\displaystyle \text{Form A (gerundet): } \ZSFwnvLt = \ZSFwnvL - \ZSFwnvB \quad \text{Form B (rechteckig): } \ZSFwnvLt = \ZSFwnvL$\par}
+\formulasep
+{\centering $\displaystyle \ZSFwnvPm = \frac{2 \cdot \ZSFwnvMt}{\ZSFwnvD \cdot (\ZSFwnvH-\ZSFwnvTOne)\cdot \ZSFwnvLt} = \frac{\ZSFwnvF}{\ZSFwnvA} \qquad \ZSFwnvPzul = \frac{\ZSFwnvRe}{\ZSFwnvS}$\par}
+\ZSFgapXS
+{\centering $\displaystyle \ZSFwnvF=\ZSFwnvFt=\frac{2\cdot \ZSFwnvMt}{\ZSFwnvD} \qquad \ZSFwnvA = \ZSFwnvHt \cdot \ZSFwnvLt = (\ZSFwnvH - \ZSFwnvTOne) \cdot \ZSFwnvLt$\par}
+\end{formulabox}
+
+\ZSFfig[0.65]{graphics/passfeder_mittlere_pressung.png}{Mittlere Pressung Passfeder}{}
+
+\SubsubsectionBar{Keilwelle}
+\ZSFindex{Keilwelle}
+
+\begin{runintext}
+Welle mit gleichmässig verteilten Keilen als Mitnehmerelemente.
+\end{runintext}
+
+\begin{formulabox}[Tragende Fläche und Pressung]
+\formulasources{$\ZSFwnvLt$:~Geometrie ($\ZSFwnvLt\leq\ZSFwnvL$) \ $\cdot$ \ $\ZSFwnvPzul$:~\ZSFsource{aus}{formula:wnv-pzul}}
+{\centering $\displaystyle \ZSFwnvA = \ZSFwnvLt \cdot \ZSFwnvHt \cdot \ZSFwnvN \cdot \ZSFwnvPhi \qquad \text{\TableCellNote{\dots Anzahl Keile $\ZSFwnvN$}}$\par}
+\ZSFgapXS
+{\centering $\displaystyle \ZSFwnvHt \approx 0,4 \cdot\frac{\ZSFwnvDbig-\ZSFwnvD}{2} \qquad \ZSFwnvH = \frac{\ZSFwnvDbig-\ZSFwnvD}{2}$\par}
+\formulasep
+{\centering $\displaystyle \ZSFwnvPm = \frac{10 \cdot \ZSFwnvMt}{(\ZSFwnvDbig + \ZSFwnvD)\cdot \ZSFwnvLt \cdot (\ZSFwnvDbig-\ZSFwnvD)\cdot \ZSFwnvN \cdot \ZSFwnvPhi} = \frac{\ZSFwnvF}{\ZSFwnvA} = \ZSFwnvPzul$\par}
+\ZSFgapXS
+{\centering $\displaystyle \ZSFwnvF = \frac{2\cdot \ZSFwnvMt}{\ZSFwnvDm} = \frac{4 \cdot \ZSFwnvMt}{\ZSFwnvDbig + \ZSFwnvD}$\par}
+\end{formulabox}
+
+\ZSFfigside[0.53]{graphics/keilwelle_zentrierungsarten.png}{Keilwelle und Zentrierungsarten}{%
+  \ZSFReadableOn
+  \begin{propertylist}[Tragfaktor $\ZSFwnvPhi$]
+    \ZSFFact{Innenzentrierung}{Spiel an den Flanken, sehr genauer Rundlauf ($\ZSFwnvPhi = 0.75$)}
+    \ZSFFact{Flankenzentrierung}{Spiel am Umfang, unempfindlich gegen Stösse ($\ZSFwnvPhi = 0.90$)}
+  \end{propertylist}
+}
+\ZSFindex{Tragfaktor}
+
+\SubsectionBar[sec:wnv-reibschluss]{Reibschlüssige WNV}
+\ZSFindex[reibschlussige wnv]{reibschlüssige WNV}
+
+\begin{runintext}
+Moment wird durch \ZSFkeyword{Reibschluss} übertragen. Beispiele: Kegelspannelemente, Kelgelspannsatz, Schrumpfscheibe, Sternscheiben, Druckhülse, Toleranzring, Klemmverbindung, Kreiskeilverbindung.
+\end{runintext}
+
+\SubsubsectionBar[sec:zpv]{Zylindrischer Pressverband ZPV}
+\ZSFindex{Pressverband, zylindrischer}
+\ZSFindexsee{ZPV}{Pressverband, zylindrischer}
+
+\begin{runintext}
+Pressung, weil $\ZSFwnvDwelle > \ZSFwnvDnabe$.
+\end{runintext}
+
+\begin{figbox}[Zylindrischer Pressverband ZPV]
+  \centering
+  \begin{tikzpicture}[x=0.99pt, y=1pt, >=latex, font=\sffamily\fontsize{5.5}{6.5}\selectfont]
+    % --- 1. Stirnansicht (left) ---
+    \def\xS{28}
+    \def\yS{22}
+    \def\rHub{16}
+    \def\rShaft{10}
+    \def\rInner{5}
+    
+    % Fills
+    \fill[fill=\chaptercolorlight!20] (\xS,\yS) circle (\rHub);
+    \fill[fill=white] (\xS,\yS) circle (\rShaft);
+    \fill[fill=black!6] (\xS,\yS) circle (\rShaft);
+    \fill[fill=white] (\xS,\yS) circle (\rInner);
+    
+    % Circles
+    \draw[black, thin] (\xS,\yS) circle (\rHub);
+    \draw[black, thick] (\xS,\yS) circle (\rShaft);
+    \draw[black, thin] (\xS,\yS) circle (\rInner);
+    
+    % Axes
+    \draw[ultra thin, black!40, dashdotted] (\xS-19, \yS) -- (\xS+19, \yS);
+    \draw[ultra thin, black!40, dashdotted] (\xS, \yS-19) -- (\xS, \yS+19);
+    
+    % Contact point top (28, 32)
+    \coordinate (C1) at (\xS, \yS+\rShaft);
+    \fill[black] (C1) circle (0.8);
+    
+    % FN (pointing down to contact point, head at 32, green)
+    \draw[thick, MechRoleGreen, ->] (28, 44) -- (28, 32);
+    \node[above, MechRoleGreen] at (28, 44) {$\ZSFwnvFN$};
+    
+    % Ft,max (applied tangential force, violet, pointing right, head at 28)
+    \draw[thick, MechRoleViolet, ->] (12, 32) -- (28, 32);
+    \node[left, MechRoleViolet] at (10, 32) {$\ZSFwnvFtMax$};
+    
+    % FR,t (resisting friction, amber, pointing left, head at 28)
+    \draw[thick, MechRoleAmber, ->] (44, 32) -- (28, 32);
+    \node[right] at (46, 32) {$\ZSFwnvFRt$};
+    
+    % Mt (torque arc at the outer hub edge for readability, purple)
+    \draw[->, thin, MechVarMomentColor] (28, 22) ++(20:20) arc (20:70:20);
+    \node[above right=-2pt, MechVarMomentColor] at (42, 38) {$\ZSFwnvMt$};
+    
+    % Dimension d
+    \draw[ultra thin, black!50] (18, 19) -- (18, 4);
+    \draw[ultra thin, black!50] (38, 19) -- (38, 4);
+    \draw[<->, ultra thin, black!60] (18, 7) -- (38, 7);
+    \node[below] at (28, 7) {$\ZSFwnvD$};
+
+    % --- 2. Längsschnitt (middle) ---
+    \def\xL{100}
+    \def\yL{22}
+    \def\wLt{28}
+    
+    % Stepped Shaft body with fillets (Rundungen) in the transitions
+    \filldraw[fill=black!6, draw=black] 
+      (81, 22) -- (81, 30) -- (83, 32) -- (114, 32) -- (114, 35) -- (120, 35) -- (120, 34) 
+      to[out=270, in=180] (122, 31) -- (132, 31) -- (132, 13) -- (122, 13) 
+      to[out=180, in=90] (120, 10) -- (120, 9) -- (114, 9) -- (114, 12) -- (83, 12) -- (81, 14) -- cycle;
+      
+    % Shaft steps/grooves representation
+    \draw[black, thin] (126, 13) -- (126, 31);
+    \draw[black, thin] (129, 13) -- (129, 31);
+    
+    % Hub halves (hatched rectangles)
+    \filldraw[fill=\chaptercolorlight!20, draw=black] (86, 32) rectangle (114, 38);
+    \draw[ultra thin, black!50] (88, 32) -- (94, 38);
+    \draw[ultra thin, black!50] (94, 32) -- (100, 38);
+    \draw[ultra thin, black!50] (100, 32) -- (106, 38);
+    \draw[ultra thin, black!50] (106, 32) -- (112, 38);
+    
+    \filldraw[fill=\chaptercolorlight!20, draw=black] (86, 6) rectangle (114, 12);
+    \draw[ultra thin, black!50] (88, 12) -- (94, 6);
+    \draw[ultra thin, black!50] (94, 12) -- (100, 6);
+    \draw[ultra thin, black!50] (100, 12) -- (106, 6);
+    \draw[ultra thin, black!50] (106, 12) -- (112, 6);
+    
+    % Centerline
+    \draw[ultra thin, black!40, dashdotted] (76, 22) -- (136, 22);
+    
+    % Contact point top (100, 32)
+    \coordinate (C2) at (\xL, \yL+\rShaft);
+    \fill[black] (C2) circle (0.8);
+    
+    % FN (pointing down to contact point, head at 32, green)
+    \draw[thick, MechRoleGreen, ->] (100, 44) -- (100, 32);
+    \node[above, MechRoleGreen] at (100, 44) {$\ZSFwnvFN$};
+    
+    % Fa,max (applied axial force, magenta, pointing right, head at 100)
+    \draw[thick, MechRoleMagenta, ->] (84, 32) -- (100, 32);
+    \node[above left=-1.5pt, MechRoleMagenta] at (84, 32) {$\ZSFwnvFaMax$};
+    
+    % FR,a (resisting friction, amber, pointing left, head at 100)
+    \draw[thick, MechRoleAmber, ->] (122, 32) -- (100, 32);
+    \node[above right=-1.5pt] at (122, 32) {$\ZSFwnvFRa$};
+    
+    % Friction coefficient and its pointer line to the contact surface
+    \node[above right] at (115, 38) {$\ZSFwnvMu$};
+    \draw[ultra thin, black!60] (116, 38.5) -- (109, 32);
+    \fill[black!60] (109, 32) circle (0.8);
+    
+    % Dimension Lt (placed at the bottom to avoid top clutter)
+    \draw[ultra thin, black!50] (86, 6) -- (86, -3);
+    \draw[ultra thin, black!50] (114, 6) -- (114, -3);
+    \draw[<->, ultra thin, black!60] (86, 0) -- (114, 0);
+    \node[below] at (100, 0) {$\ZSFwnvLt$};
+    
+    % Dimension d
+    \draw[ultra thin, black!50] (81, 32) -- (72, 32);
+    \draw[ultra thin, black!50] (81, 12) -- (72, 12);
+    \draw[<->, ultra thin, black!60] (74, 12) -- (74, 32);
+    \node[left] at (74, 22) {$\ZSFwnvD$};
+
+    % --- 3. Vektordreieck (right) ---
+    \def\xV{155}
+    \def\yV{12}
+    \def\dxV{24}
+    \def\dyV{17}
+    
+    % Ft,max (horizontal, violet)
+    \draw[thick, MechRoleViolet, ->] (155, 12) -- (179, 12);
+    \node[below, MechRoleViolet] at (167, 12) {$\ZSFwnvFtMax$};
+    
+    % Fa,max (vertical, magenta)
+    \draw[thick, MechRoleMagenta, ->] (179, 12) -- (179, 29);
+    \node[right, MechRoleMagenta] at (179, 20.5) {$\ZSFwnvFaMax$};
+    
+    % Resultant force Fres,max (hypotenuse, orange)
+    \draw[very thick, MechRoleOrange, ->] (155, 12) -- (179, 29);
+    \node[above left, MechRoleOrange] at (167, 20.5) {$\ZSFwnvFresMax$};
+    
+    % Right angle marker
+    \draw (176, 12) -- (176, 15) -- (179, 15);
+  \end{tikzpicture}
+\end{figbox}
+
+\begin{formulabox}[Pressung und Torsionsmoment]
+\formulasources{$\ZSFwnvLt$:~Geometrie}
+{\centering $\displaystyle \ZSFwnvFresMax = \sqrt{\ZSFwnvFtMax^2 + \ZSFwnvFaMax^2} \qquad \ZSFwnvFR = \ZSFwnvMu \cdot \ZSFwnvFN$\par}
+\ZSFgapXS
+{\centering $\displaystyle \ZSFwnvPerf = \frac{\ZSFwnvFresMax}{\ZSFwnvMu \cdot \pi \cdot \ZSFwnvD \cdot \ZSFwnvLt} \quad \text{\TableCellNote{\dots erf. Pressung}}$\par}
+\formulasep
+{\centering $\displaystyle \ZSFwnvMt = \frac{\ZSFwnvD \cdot \ZSFwnvFt}{2} = \frac{\ZSFwnvLt \cdot \pi \cdot \ZSFwnvD^2 \cdot \ZSFwnvPerf\cdot \ZSFwnvMu}{2}$\par}
+\formulanote{Falls Zahnrad-Kraft gegeben: $\ZSFwnvFt = \ZSFgearFtTooth \cdot \frac{\ZSFgearDTooth}{\ZSFwnvD}$ (mit Zahnrad-Durchmesser $\ZSFgearDTooth$)}
+\end{formulabox}
+
+
+\SubsubsectionBarOnNewColumn[sec:kpv]{Kegelpressverband KPV}
+\ZSFindex{Pressverband, Kegel-}
+\ZSFindexsee{KPV}{Pressverband, Kegel-}
+
+\ZSFfig[0.7]{graphics/v4_tapered_press_fit_forces.png}{Kegelpressverband}{}
+
+\begin{formulabox}[Pressung und Kräfte]
+\formulasources{$\ZSFwnvLt$:~Geometrie}
+\[ \ZSFwnvDmF = \frac{\ZSFwnvDOne + \ZSFwnvDTwo}{2} \qquad \ZSFwnvFrMax = \ZSFwnvMu \cdot \ZSFwnvPerf \cdot \ZSFwnvA \]
+\[ \ZSFwnvFtMax = \ZSFwnvMu \cdot \ZSFwnvPerf \cdot \pi \cdot \ZSFwnvDmF \cdot \ZSFwnvLt \qquad \tan\frac{\ZSFwnvAlpha}{2} = \frac{\ZSFwnvDOne - \ZSFwnvDTwo}{2 \cdot \ZSFwnvLt} \]
+\[ \ZSFwnvPerf = \frac{2 \cdot \ZSFwnvMmax \cdot \cos\frac{\ZSFwnvAlpha}{2}}{\ZSFwnvMu \cdot \pi \cdot \ZSFwnvDmF^2 \cdot \ZSFwnvLt} \]
+\[ \frac{1}{\ZSFwnvC} = \frac{\ZSFwnvDOne - \ZSFwnvDTwo}{\ZSFwnvLt} = 2 \cdot \tan\frac{\ZSFwnvAlpha}{2} \]
+\formulanote{$1/\ZSFwnvC = $ Kegelverhältnis ($\ZSFwnvC = $ Kegelzahl)}
+\end{formulabox}

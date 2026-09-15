@@ -1,0 +1,15 @@
+% ============================================================
+% 95_migration_compat.tex — Restbestand der MaschKo-Migration
+% ------------------------------------------------------------
+% Nach dem Kapitel-Rework verbleibt ein kleines Erbstück der Original-ZSF
+% (Liv Erne, Silvio Seiz):
+%
+% Gradzeichen-Mapping: Die Kapitel schreiben "°" literal (auch im
+% Textmodus). Carlito (OT1) hat kein \textdegree — ohne Mapping
+% fällt das Zeichen im PDF stumm weg.
+%
+% Entfallen (Rework abgeschlossen): \formbox/\formboxduo, wrapfig,
+% graphbox, tikz-trees.
+% ============================================================
+
+\DeclareUnicodeCharacter{00B0}{\ensuremath{^\circ}}

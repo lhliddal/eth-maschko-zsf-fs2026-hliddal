@@ -1,0 +1,92 @@
+% !TEX root = ../main.tex
+% SECTION 10: GESTALTUNG UND FERTIGUNG
+% Inhalt: Liv Erne, Silvio Seiz — Form: ZSF-Template-Rework
+% ============================================================
+
+\StartChapter[ch:fertigung]{Gestaltung und Fertigung}
+
+\begin{factlist}
+\ZSFFact{Idealgestalt}{$\leftarrow$ Lösungsprinzip}
+\ZSFFact{Realgestalt}{$\leftarrow$ Betrieb, Werkstoffe, Wirtschaft, Umwelt und Herstellung}
+\end{factlist}
+
+\SubsectionBar[sec:fertigungsverfahren]{Fertigungsverfahren}
+\ZSFindex{Fertigungsverfahren}
+\ZSFindex{Urformen}
+\ZSFindex{Umformen}
+\ZSFindex{Trennen}
+\ZSFindex[fugen]{Fügen}
+\ZSFindex{Beschichten}
+
+\SubsubsectionBar*{1. Urformen}
+\ZSFverfahrenBefore
+{\centering
+\begin{tikzpicture}[font=\ZSFfontTableDense]
+\matrix[ZSFverfahrenmatrix, name=mat] {
+Giessen & Zahnbürsten, Motorkolben \\
+Sintern & Bremsbeläge, Zahnräder \\
+Additive Manuf. & 1.~Bauteilentwicklung am CAD-System\newline 2.~Slice-Vorgang\newline 3.~Bauteilerstellung an der SLM-Maschine\newline 4.~Bauteilnachbearbeitung \\
+};
+\ZSFverfahrenconnectors{3}
+\end{tikzpicture}\par}
+
+\SubsubsectionBar*{2. Umformen}
+\ZSFverfahrenBefore
+{\centering
+\begin{tikzpicture}[font=\ZSFfontTableDense]
+\matrix[ZSFverfahrenmatrix, name=mat] {
+Walzen & Bleche, Schienen \\
+Schmieden & Hufeisen, Werkzeug \\
+Tiefziehen & Alu-Dosen, Invisalign \\
+};
+\ZSFverfahrenconnectors{3}
+\end{tikzpicture}\par}
+
+\SubsubsectionBar*{3. Trennen}
+\ZSFverfahrenBefore
+{\centering
+\begin{tikzpicture}[font=\ZSFfontTableDense]
+\matrix[ZSFverfahrenmatrix, name=mat] {
+Drehen & Antriebsachsen \\
+Fräsen & MacBook-Casing \\
+Schleifen & Präzisionslager, Linsen \\
+Schneiden/Stanzen & Fahrrad-Bremsscheiben \\
+};
+\ZSFverfahrenconnectors{4}
+\end{tikzpicture}\par}
+
+\SubsubsectionBar*{4. Fügen}
+\ZSFverfahrenBefore
+{\centering
+\begin{tikzpicture}[font=\ZSFfontTableDense]
+\matrix[ZSFverfahrenmatrix, name=mat] {
+Schweissen & Stahlrahmen, Brücken \\
+Löten & Leiterplatten, Kupferrohr \\
+Kleben & Windschutzscheiben, CFK-Bauteile \\
+};
+\ZSFverfahrenconnectors{3}
+\end{tikzpicture}\par}
+
+\SubsubsectionBar*{5. Beschichten}
+\ZSFverfahrenBefore
+{\centering
+\begin{tikzpicture}[font=\ZSFfontTableDense]
+\matrix[ZSFverfahrenmatrix, name=mat] {
+Lackieren & Karosserie, Möbel \\
+Galvanisieren & Chromfelgen, Schmuck \\
+PVD / CVD & Werkzeuge, Solarzellen \\
+};
+\ZSFverfahrenconnectors{3}
+\end{tikzpicture}\par}
+
+\SubsubsectionBar*{6. Stoffeigensch. ändern}
+\ZSFverfahrenBefore
+{\centering
+\begin{tikzpicture}[font=\ZSFfontTableDense]
+\matrix[ZSFverfahrenmatrix, name=mat] {
+Härten & Getriebewellen, Werkzeugstahl \\
+Glühen & Federstahl, Kaltumformteile \\
+Nitrieren & Kurbelwellen, Zahnräder \\
+};
+\ZSFverfahrenconnectors{3}
+\end{tikzpicture}\par}

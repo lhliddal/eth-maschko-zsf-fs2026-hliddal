@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "maschko-fs2026",
+  "kind": "zsf",
+  "title": "Maschinenkonstruktion",
+  "semesterCode": "fs2026",
+  "semesterLabel": "FS 2026",
+  "status": "archive",
+  "githubRepository": "lhliddal/eth-maschko-zsf-fs2026-hliddal",
+  "pdfFilename": "maschko_fs2026_hliddal.pdf",
+  "presentation": {
+    "drawingNumber": "MK · FS26",
+    "description": "Maschinenkonstruktion in mein System übertragen und für eine schnelle, direkte Nutzung in der Prüfung überarbeitet. Ein zusätzliches Farbsystem für Variablen hilft, Fehler zu vermeiden und spürbar Zeit zu sparen: Die Prüfung steht unter enormem Zeitdruck und erfordert sehr viele, teils zusammengesetzte Formeln.",
+    "credits": "Fachliche Grundlage: Liv Erne und Silvio Seiz.",
+    "stage": "layout-final",
+    "diagram": "design"
+  },
+  "releaseBaseline": "v3.3.2"
+}

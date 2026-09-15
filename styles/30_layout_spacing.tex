@@ -1,0 +1,171 @@
+% ============================================================
+% 30_layout_spacing.tex — Layout-Grundlagen, Spacing-Skala, Box-Bindungen
+% ============================================================
+
+% MaschKo-Verdichtung: kompakteres parskip (6-Seiten-Budget, bildlastige ZSF)
+\setlength{\parskip}{0.5pt plus 0.8pt minus 0.2pt}
+% MaschKo-Verdichtung: engere Zeilenabstände (Inspiration nutzte 6.75pt/6pt;
+% 0.86 für das 6-Seiten-Ziel — immer noch über der Vorlage (6.75/6 = 0.83)
+\linespread{0.74} % 6-Seiten-Ziel: baselineskip ~6.0pt wie die Inspirationsfassung
+\setlength{\parindent}{0pt}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\brokenpenalty=4000
+\predisplaypenalty=10000
+
+\raggedcolumns
+\newcounter{zsfFirstChap}\setcounter{zsfFirstChap}{1}
+
+% ------------------------------------------------------------
+% SPACING-SKALA (4 Stufen) — die einzige Quelle für Abstände
+% ------------------------------------------------------------
+% MaschKo-Verdichtung: Skala enger als Template-Default (4/7/10)
+\newlength{\ZSFspaceXXS}\setlength{\ZSFspaceXXS}{0.5pt} % MaschKo: Mikro-Stufe für Display-Skips (6-Seiten-Ziel)
+\newlength{\ZSFspaceXS}\setlength{\ZSFspaceXS}{1pt}
+\newlength{\ZSFspaceS} \setlength{\ZSFspaceS}{2pt}
+\newlength{\ZSFspaceM} \setlength{\ZSFspaceM}{4pt}
+\newlength{\ZSFspaceL} \setlength{\ZSFspaceL}{6pt}
+
+% Outer (Text-Box-Bindung) und Sep (Trennlinien)
+\newlength{\ZSFspaceOuter}\setlength{\ZSFspaceOuter}{2pt} % MaschKo-Verdichtung: 4 -> 2 (6-Seiten-Ziel)
+\newlength{\ZSFspaceSep}  \setlength{\ZSFspaceSep}{1pt} % MaschKo-Verdichtung: 3 -> 1.5 -> 1 (Trennstriche frassen ~8pt pro \formulasep)
+
+% Corner-Radius-Tokens: runder Grundlook, aber zentral steuerbar.
+\newlength{\ZSFcornerBox}   \setlength{\ZSFcornerBox}{0.6mm}
+\newlength{\ZSFcornerInline}\setlength{\ZSFcornerInline}{1mm}
+
+% ------------------------------------------------------------
+% Spalten-Layout
+% ------------------------------------------------------------
+\setlength{\columnsep}{4pt} % MaschKo-Verdichtung: L (6pt) -> 4pt (6-Seiten-Ziel)
+\setlength{\multicolsep}{\ZSFspaceS}
+\setlength{\emergencystretch}{2em}
+
+% ------------------------------------------------------------
+% Schwellwerte und Titelbalken-Hilfsgrössen
+% ------------------------------------------------------------
+\newlength{\ZSFbreakThreshold}\setlength{\ZSFbreakThreshold}{0pt} % Schwellwert minimiert/deaktiviert: verhindert vorzeitige Spaltenumbrüche bei geringem Restplatz
+\newlength{\ZSFbreakThresholdChapter}\setlength{\ZSFbreakThresholdChapter}{3\baselineskip} % Mindesthöhe für ChapterBar (verhindert Bars am Spaltenende); MaschKo: 3 statt 10 (Platzbudget; Boxen sind breakable, Bar+erste Teilbox brauchen weniger Reserve)
+\newlength{\ZSFpostChapterNudge}\setlength{\ZSFpostChapterNudge}{0pt}
+\newlength{\ZSFtitleBarHeight}\setlength{\ZSFtitleBarHeight}{5.8pt} % MaschKo: 9.2 -> 7 -> 5.8 (6-Seiten-Ziel; Strut der Titelschrift bestimmt die effektive Höhe)
+\newlength{\ZSFsubsectionBarBeforeSkip}\setlength{\ZSFsubsectionBarBeforeSkip}{4pt} % MaschKo: mehr Luft vor echten Unterthemen, bleibt im 6-Seiten-Budget
+\newlength{\ZSFsubsubsectionBarBeforeSkip}\setlength{\ZSFsubsubsectionBarBeforeSkip}{\ZSFspaceXXS} % dritte Ebene: so kompakt wie bisherige Stern-Zwischentitel
+\newlength{\ZSFsubsectionAfterChapterGap}\setlength{\ZSFsubsectionAfterChapterGap}{0pt} % Kapitelbalken + erster Abschnitt ohne Zwischenlücke
+\newlength{\ZSFsubsectionAfterGap}\setlength{\ZSFsubsectionAfterGap}{\ZSFspaceXS}
+\newlength{\ZSFchapterBarAfterSkip}\setlength{\ZSFchapterBarAfterSkip}{1pt} % MaschKo-Verdichtung: 2 -> 1 (6-Seiten-Ziel)
+
+% Maximale Höhe für Bilder in figboxen (verhindert überhohe Aspect-Ratios).
+\newlength{\ZSFfigMaxHeight}\setlength{\ZSFfigMaxHeight}{2.6cm}
+% Globaler Skalierungsfaktor für \ZSFfig-Bilder (Seitenbudget-Hebel).
+% Getestet (2026-07): 0.93 reduziert die Seitenzahl NICHT (Packverlust
+% dominiert) — deshalb 1.0 = exakte Vorlagen-Verhältnisse. Werte bis 0.90
+% liegen innerhalb der 10%-Toleranz, falls später nötig.
+\newcommand{\ZSFfigScale}{1.0}
+
+% Tokens für statementbox / procedure
+\newlength{\ZSFstatementBarWidth}\setlength{\ZSFstatementBarWidth}{2pt}
+\newlength{\ZSFstatementLeftPad} \setlength{\ZSFstatementLeftPad}{\ZSFspaceM}
+\newlength{\ZSFprocStepGap}      \setlength{\ZSFprocStepGap}{\ZSFspaceXS}
+\newlength{\ZSFprocItemSep}      \setlength{\ZSFprocItemSep}{\ZSFspaceXS}
+
+% Padding für cellspace (siehe styles/20_tables.tex Konvention)
+\newlength{\ZSFtextMinPad}\setlength{\ZSFtextMinPad}{\ZSFspaceXS}
+
+% ------------------------------------------------------------
+% Code-Längen — nur für die optionalen Code-Module benötigt
+% (styles/65_code_style.tex + 67_code_comments.tex). Schadlos
+% wenn die Module in preamble.tex deaktiviert sind.
+% MaxWidth:   max. Breite des rechts-stehenden Kommentars
+% Threshold:  Schwelle für Auto-Overflow (Code+Kommentar > Threshold -> oben)
+% Default-Register sind immutabel und dienen \ResetCodeCommentThreshold
+% als Anker; \SetCodeCommentThreshold modifiziert nur die "lebenden" Register.
+% ------------------------------------------------------------
+\newlength{\ZSFcodeMiniSkip}  \setlength{\ZSFcodeMiniSkip}{1mm}
+\newlength{\ZSFcodeFrameRule} \setlength{\ZSFcodeFrameRule}{0.4pt}
+\newlength{\ZSFcodeXMargin}   \setlength{\ZSFcodeXMargin}{8pt}
+\newlength{\ZSFcodeCommentMaxWidthDefault}
+  \setlength{\ZSFcodeCommentMaxWidthDefault}{.25\columnwidth}
+\newlength{\ZSFcodeCommentThresholdDefault}
+  \setlength{\ZSFcodeCommentThresholdDefault}{\maxdimen}
+\newlength{\ZSFcodeCommentMaxWidth} \setlength{\ZSFcodeCommentMaxWidth}{\ZSFcodeCommentMaxWidthDefault}
+\newlength{\ZSFcodeCommentThreshold}\setlength{\ZSFcodeCommentThreshold}{\ZSFcodeCommentThresholdDefault}
+\newlength{\ZSFcodeCommentGap}      \setlength{\ZSFcodeCommentGap}{\ZSFspaceM}
+
+% ============================================================
+% TEXT-BOX-BINDUNGEN
+% Koppeln Fliesstext direkt an Boxen — verhindert visuellen Bruch.
+% ============================================================
+
+% Robustes Skip-/Penalty-Aufrollen (vmode-/hmode-aware)
+\newcommand{\ZSFRobustUnskip}{%
+  \ifvmode
+    \ifdim\lastskip>0pt\relax\vskip-\lastskip\fi
+    \ifnum\lastpenalty=0\else\unpenalty\fi
+    \ifdim\lastskip>0pt\relax\vskip-\lastskip\fi
+  \else
+    \ifdim\lastskip>0pt\relax\unskip\fi
+    \ifnum\lastpenalty=0\else\unpenalty\fi
+    \ifdim\lastskip>0pt\relax\unskip\fi
+  \fi
+}
+
+% Text der zur Box DARUNTER gehört (Einleitung)
+\newcommand{\textVorBox}[1]{%
+  \par
+  \addvspace{\ZSFspaceOuter}%
+  \begingroup
+  \setlength{\parskip}{0pt}%
+  {\small\color{TextVorBoxColor} \noindent #1\par}%
+  \endgroup
+  \nopagebreak
+  \vspace{\ZSFspaceXS}%
+  \vspace{-\ZSFspaceS}%
+  \nopagebreak
+}
+
+% Text der zur Box DARÜBER gehört (Ergänzung/Folgerung)
+\newcommand{\textNachBox}[1]{%
+  \par
+  \ZSFRobustUnskip
+  \vspace{\ZSFspaceXS}%
+  \begingroup
+  \setlength{\parskip}{0pt}%
+  \nopagebreak
+  {\small\color{TextNachBoxColor} \noindent #1\par}%
+  \endgroup
+  \addvspace{\ZSFspaceOuter}%
+}
+
+% Titel/Text vor einer Formel (innerhalb der formulabox)
+\newcommand{\textVorFormel}[1]{%
+  \par
+  \begingroup
+  \setlength{\parskip}{0pt}%
+  \noindent\raggedright\textcolor{black!60}{\textbf{#1}}\par
+  \endgroup
+  \vspace{\ZSFspaceXS}%
+  \centering
+}
+
+% Erklaerungstext nach einer Formel (innerhalb der formulabox)
+\newcommand{\textNachFormel}[1]{%
+  \par
+  \vspace{\ZSFspaceXS}%
+  \begingroup
+  \setlength{\parskip}{0pt}%
+  \noindent\raggedright\textcolor{black!60}{\small #1}\par
+  \endgroup
+  \centering
+}
+
+% ------------------------------------------------------------
+% Semantische Gap-Helfer für Kapitel (sparsam einsetzen)
+% ------------------------------------------------------------
+\newcommand{\ZSFSectionGap}{\vspace{\ZSFspaceL}}
+\newcommand{\ZSFgapXS}{\vspace{\ZSFspaceXS}}
+\newcommand{\ZSFgapS}{\vspace{\ZSFspaceS}}
+\newcommand{\ZSFgapM}{\vspace{\ZSFspaceM}}
+\newcommand{\ZSFgapL}{\vspace{\ZSFspaceL}}
+\newcommand{\ZSFmanualColumnBreak}{\columnbreak}
+\newcommand{\ZSFtabColGap}{\hspace{1.5em}}

@@ -1,0 +1,34 @@
+% MaschKo: scrartcl mit freiem fontsize (Muster: zsf-informatik2-fs2026) —
+% 6.75pt statt 8pt: gleiche Grundschrift wie die Inspirations-ZSF.
+% Die 103 Bilder belegen fix ~2.6 Seiten Fläche; kleinere Schrift
+% (getestet: 6.3pt, 6.0pt) reduziert die Seitenzahl NICHT weiter,
+% da unteilbare Bildbloecke die Spaltenpackung dominieren.
+\documentclass[a4paper, fontsize=6.75pt, landscape]{scrartcl}
+\input{preamble}
+
+% ============================================================
+% DOCUMENT
+% ============================================================
+
+\begin{document}
+\setcounter{section}{0}
+\begin{multicols*}{4}
+
+\input{chapters/ch00_titel}
+\input{chapters/ch01_zahnradtechnik}
+\columnbreak
+\input{chapters/ch02_wnv}
+\input{chapters/ch03_beanspruchungen}
+\input{chapters/ch04_toleranzen}
+\input{chapters/ch05_federn}
+\input{chapters/ch06_lager}
+\input{chapters/ch07_kupplungen}
+\input{chapters/ch08_schrauben}
+\input{chapters/ch09_mechanismen}
+\input{chapters/ch10_fertigung}
+\input{chapters/ch11_elektromotoren}
+\input{chapters/ch12_anhang}
+% \input{chapters/ch13_stichwortverzeichnis}  % Index ausgetoggelt (Modul 66 bleibt in preamble.tex geladen, da Kapitel \ZSFindex nutzen)
+
+\end{multicols*}
+\end{document}

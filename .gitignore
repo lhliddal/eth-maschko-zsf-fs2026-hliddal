@@ -1,0 +1,28 @@
+# LaTeX build artifacts
+build/
+main.pdf
+maschko_fs2026_hliddal.pdf
+main.synctex.gz
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.idx
+*.ilg
+*.ind
+
+# Local system files
+.DS_Store
+
+# Local exam-analysis workspace
+_pruefungsanalyse/
+
+# Temporary crops/test graphics
+graphics/test_crops/
